@@ -16,9 +16,10 @@ html, body {
 #buttons {
 	position:fixed;
 	rowspan: 150px;
-	top:200px;
+	top:100px;
 	left: 50px;
 	padding: 12px;
+	border:1px solid white;
 }
 
 #volcano_button {
@@ -74,5 +75,41 @@ html, body {
 
 #waterfall_button:hover {
 	background-image: url('../images/waterfall_hover.png');
+	background-size: 100% 100%;
+}
+
+#auroras_button {
+	width:90px;
+	height:80px;
+	border-radius:100%;
+	background-image: url('../images/aurora.png');
+	background-size: 100% 100%;
+	border:none;
+	-webkit-transition: background-image 2s;
+	trasition: background-image 2s;
+	transition-duration: 0.5s;
+	outline:none;
+}
+
+#auroras_button:hover {
+	background-image: url('../images/aurora_hover.png');
+	background-size: 100% 100%;
+}
+
+#iceberg_button {
+	width:90px;
+	height:80px;
+	border-radius:100%;
+	background-image: url('../images/iceberg.png');
+	background-size: 100% 100%;
+	border:none;
+	-webkit-transition: background-image 2s;
+	trasition: background-image 2s;
+	transition-duration: 0.5s;
+	outline:none;
+}
+
+#iceberg_button:hover {
+	background-image: url('../images/iceberg_hover.png');
 	background-size: 100% 100%;
 }

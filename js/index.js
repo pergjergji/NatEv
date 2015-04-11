@@ -4,10 +4,14 @@ var options;
 var volcanoes_markers = ['Vezuvi', 'Etna', 'Sinabung Sumatra', 'Dukono Halmahera', 'Villarrica Central Chile', 'Sangay Ecuador', 'Ubinas Peru']; 
 var mountains_markers = ['Mount Everest', 'Mount Elbrus', 'Mount Kilimanjaro', 'Mount Kosciuszko', 'Mount Aconcagua'];
 var waterfalls_markers = ['Detian Waterfall', 'Krimml Waterfalls', 'Tugela River Falls', 'Wallaman Falls', 'Yosemite Falls'];
+var auroras_markers = ['Aurora'];
+var iceberg_markers = ['IceBerg'];
 
 var volcanoes_names = [];
 var mountains_names = [];
 var waterfalls_names = [];
+var auroras_names = [];
+var iceberg_names = [];
 
 var volcanoes_coordinates = [
 								[40.8167, 14.4333],
@@ -32,17 +36,30 @@ var waterfalls_coordinates = [
 								[-18.5922, 145.8014],
 								[37.7550, -119.5973]
 							];
+							
+							
+var auroras_coordinates = [[70.0000, 18.0000]];
+var iceberg_coordinates = [[89.9997, 0.0000]];
+
 var volcanoes_images = [];
 var mountains_images = [];
 var waterfalls_images = [];
+var auroras_images = [];
+var iceberg_images = [];
 
 var show_v = true;
 var show_m = true;
 var show_w = true;
+var show_a = true;
+var show_i = true;
+
 
 var add_volcano_names = true;
 var add_mountain_names = true;
 var add_waterfall_names = true;
+var add_auroras_names = true;
+var add_iceberg_names = true;
+
 
 function show_volcanoes() {
 	if(show_v == true) {
@@ -114,6 +131,54 @@ function show_waterfalls() {
 	}
 	
 	add_waterfall_names = false;
+}
+
+function show_auroras() {
+	if(show_a == true) {
+		show_a = false;
+		
+		for(var index in auroras_markers) {
+			if(add_auroras_names == true) {
+				auroras_names.push(auroras_markers[index]);
+			}
+			
+			auroras_markers[index] = WE.marker([auroras_coordinates[index][0], auroras_coordinates[index][1]]).addTo(earth);
+			auroras_markers[index].bindPopup("<h1>" + auroras_names[index] + "</h1><p>(<span style='font-style: italic;'>Auroras</span>)</p>", 
+												{maxWidth: 150, closeButton: true});	
+		}
+	} else {
+		show_v = true;
+		
+		for(var index in auroras_markers) {
+			auroras_markers[index].detach();	
+		}
+	}
+	
+	add_auroras_names = false;
+}
+
+function show_iceberg() {
+	if(show_i == true) {
+		show_i = false;
+		
+		for(var index in iceberg_markers) {
+			if(add_iceberg_names == true) {
+				iceberg_names.push(iceberg_markers[index]);
+			}
+			
+			iceberg_markers[index] = WE.marker([iceberg_coordinates[index][0], iceberg_coordinates[index][1]]).addTo(earth);
+			iceberg_markers[index].bindPopup("<h1>" + iceberg_names[index] + "</h1><p>(<span style='font-style: italic;'>IceBerg</span>)</p>", 
+												{maxWidth: 150, closeButton: true});	
+		}
+	} else {
+		show_i = true;
+		
+		for(var index in iceberg_markers) {
+			iceberg_markers[index].detach();	
+		}
+	}
+	
+	add_iceberg_names = false;
 }
 
 function initialize() {
