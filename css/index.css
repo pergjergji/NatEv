@@ -1,0 +1,75 @@
+html, body {
+	padding: 0; 
+	margin: 0;
+}
+		
+#earth_div { 
+	top: 0; 
+	right: 0; 
+	bottom: 0; 
+	left: 0; 
+	background-image: url('../images/NightSky.jpg'); 
+	background-size: 100% 100%; 
+	position: absolute !important; 
+}
+
+#buttons {
+	position:fixed;
+	rowspan: 150px;
+	top:200px;
+	left: 50px;
+	padding: 12px;
+}
+
+#volcano_button {
+	width:90px;
+	height:80px;
+	border-radius:100%;
+	background-image: url('../images/volcano.png');
+	background-size: 100% 100%;
+	border:none;
+	-webkit-transition: background-image 2s;
+	trasition: background-image 2s;
+	transition-duration: 0.5s;
+}
+
+#volcano_button:hover {
+	background-image: url('../images/volcano_hover.png');
+	background-size: 100% 100%;
+}
+
+#mountain_button {
+	width:90px;
+	height:80px;
+	border-radius:100%;
+	background-image: url('../images/stoneage.png');
+	background-size: 100% 100%;
+	border:none;
+	padding-top: 12px;
+	-webkit-transition: background-image 2s;
+	trasition: background-image 2s;
+	transition-duration: 0.5s;
+}
+
+#mountain_button:hover {
+	background-image: url('../images/stoneage_hover.png');
+	background-size: 100% 100%;
+}
+
+#waterfall_button {
+	width:90px;
+	height:80px;
+	border-radius:100%;
+	background-image: url('../images/waterfall.png');
+	background-size: 100% 100%;
+	border:none;
+	padding-top: 12px;
+	-webkit-transition: background-image 2s;
+	trasition: background-image 2s;
+	transition-duration: 0.5s;
+}
+
+#waterfall_button:hover {
+	background-image: url('../images/waterfall_hover.png');
+	background-size: 100% 100%;
+}
