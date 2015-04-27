@@ -16,10 +16,14 @@ html, body {
 #buttons {
 	position:fixed;
 	rowspan: 150px;
-	top:100px;
-	left: 50px;
+	top:230px;
+	left: -5px;
 	padding: 12px;
-	border:1px solid white;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	opacity: 0.5;
+	border: rgba(255,255,255,0.35) medium solid;
+	background-color: rgba(255,255,255,0.25);
 }
 
 #volcano_button {
@@ -29,15 +33,19 @@ html, body {
 	background-image: url('../images/volcano.png');
 	background-size: 100% 100%;
 	border:none;
-	-webkit-transition: background-image 2s;
-	trasition: background-image 2s;
+	-webkit-transition: background-image 2s, width 2s, height 2s;
+	trasition: background-image 2s, width 2s, height 2s;
 	transition-duration: 0.5s;
-	outline:none;
+	outline: none;
+	cursor: default;
 }
 
 #volcano_button:hover {
+    width: 100px;
+    height: 90px;
 	background-image: url('../images/volcano_hover.png');
 	background-size: 100% 100%;
+	cursor: pointer;
 }
 
 #mountain_button {
@@ -48,15 +56,19 @@ html, body {
 	background-size: 100% 100%;
 	border:none;
 	padding-top: 12px;
-	-webkit-transition: background-image 2s;
-	trasition: background-image 2s;
+	-webkit-transition: background-image 2s, width 2s, height 2s;
+	trasition: background-image 2s, width 2s, height 2s;
 	transition-duration: 0.5s;
-	outline:none;
+	outline: none;
+	cursor: default;
 }
 
 #mountain_button:hover {
+    width: 100px;
+    height: 90px;
 	background-image: url('../images/stoneage_hover.png');
 	background-size: 100% 100%;
+	cursor: pointer;
 }
 
 #waterfall_button {
@@ -67,49 +79,339 @@ html, body {
 	background-size: 100% 100%;
 	border:none;
 	padding-top: 12px;
-	-webkit-transition: background-image 2s;
-	trasition: background-image 2s;
+	-webkit-transition: background-image 2s, width 2s, height 2s;
+	trasition: background-image 2s, width 2s, height 2s;
 	transition-duration: 0.5s;
-	outline:none;
+	outline: none;
+	cursor: default;
 }
 
 #waterfall_button:hover {
+    width: 100px;
+    height: 90px;
 	background-image: url('../images/waterfall_hover.png');
 	background-size: 100% 100%;
+	cursor: pointer;
+}
+.figcaption {
+			display: none;
+			position:absolute;
+			margin-left:100px;
+			color:#FFF;
+			font-size:14px;
+			font-weight:bold;
+					
+		}
+		
+		button
+		{
+			background:none;
+			border:none;
+			outline:none;
+			
+		}
+		
+			#auroras_button {
+				width:80px;
+				height:70px;
+				border-radius:100%;
+				background-image:url('../images/aurora.png');							                
+				background-size: 100% 100%;
+				border:none;
+				-webkit-transition: background-image 2s, width 2s, height 2s;
+                trasition: background-image 2s, width 2s, height 2s;
+                transition-duration: 0.5s;
+                outline: none;
+                cursor: default;
+			}
+			
+			#auroras_button:hover {
+                width: 100px;
+                height: 90px;
+				background-image:url('../images/aurora_hover.png');
+				background-size: 100% 100%;
+				cursor:pointer;
+			}
+			
+			#iceberg_button {
+				width:80px;
+				height:70px;
+				border-radius:100%;
+				background-image:url('../images/iceberg.png');
+				background-size: 100% 100%;
+				border:none;
+				-webkit-transition: background-image 2s, width 2s, height 2s;
+                trasition: background-image 2s, width 2s, height 2s;
+                transition-duration: 0.5s;
+                outline: none;
+                cursor: default;
+			}
+			
+			#iceberg_button:hover {
+                width: 100px;
+                height: 90px;
+				background-image:url('../images/iceberg_hover.png');
+				background-size: 100% 100%;
+				cursor:pointer;
+			}
+			
+				#waterfall_button:hover .figcaption  {
+				display:block;
+				padding-top:25px;
+				padding-left:20px;
+				}
+				
+				
+			#volcano_button:hover .figcaption  {
+				display:block;
+				padding-top:30px;
+				padding-left:20px;
+				
+			}
+			#mountain_button:hover .figcaption  {
+				display:table;
+				padding-top:25px;
+				padding-left:20px;
+			}
+			
+			#auroras_button:hover .figcaption  {
+				display:table;
+				padding-top:25px;
+				padding-left:20px;
+			}
+			#iceberg_button:hover .figcaption  {
+				display:table;
+				padding-top:25px;
+				padding-left:20px;
+			}
+/*Sidebar*/
+#sidebar {
+	position: absolute;
+}    
+
+#sidebar_title {
+	width: 100%;
+	height: 75px;
+	margin-top: -5px;
+	margin-bottom: 30px;
+	color: #000;
 }
 
-#auroras_button {
-	width:90px;
-	height:80px;
-	border-radius:100%;
-	background-image: url('../images/aurora.png');
-	background-size: 100% 100%;
-	border:none;
-	-webkit-transition: background-image 2s;
-	trasition: background-image 2s;
+#sidebar_content {
+	width: 360px;
+	height: 600px;
+	overflow-y: auto;
+	padding-right: 15px;
+}
+
+#top_ten {
+	display: inline-block;
+	background-color: #FFF;
+	width: 114px;
+	height: 75px;
+	border-top-left-radius: 25px;
+	font-size: 21px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
 	transition-duration: 0.5s;
-	outline:none;
 }
 
-#auroras_button:hover {
-	background-image: url('../images/aurora_hover.png');
-	background-size: 100% 100%;
+#top_ten:hover {
+	opacity: 0.5;
+	cursor: pointer;
 }
 
-#iceberg_button {
-	width:90px;
-	height:80px;
-	border-radius:100%;
-	background-image: url('../images/iceberg.png');
-	background-size: 100% 100%;
-	border:none;
-	-webkit-transition: background-image 2s;
-	trasition: background-image 2s;
+#top_ten p {
+	padding-top: 5px;
+}
+
+#new {
+	display: inline-block;
+	background-color: #FFF;
+	width: 114px;
+	height: 75px;
+	font-size: 21px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
 	transition-duration: 0.5s;
-	outline:none;
 }
 
-#iceberg_button:hover {
-	background-image: url('../images/iceberg_hover.png');
-	background-size: 100% 100%;
+#new:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#new p {
+	padding-top: 5px;
+}
+
+#explore {
+	display: inline-block;
+	background-color: #FFF;
+	width: 114px;
+	height: 75px;
+	border-top-right-radius: 25px;
+	font-size: 21px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
+	transition-duration: 0.5s;
+}
+
+#explore:hover {
+	opacity: 0.5;
+	cursor: pointer; 	
+}
+
+#explore p {
+	padding-top: 5px;
+}
+
+.event_1 {
+	width: 320px;
+	height: 40px;
+	background-color: #FFF;
+	border-radius: 12px;
+	margin-left: 15px;
+	margin-top: 10px;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
+	transition-duration: 0.5s;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: left;
+}
+
+.event_1:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.event_name {
+	display: inline-block;
+	
+}
+
+.event_likes {
+	display: inline-block;
+	float: right;
+	position: relative;
+	right: 30px;
+}
+
+.event_1 p {
+	padding-top: 10px;
+	padding-left: 14px;
+}
+
+.event_2 {
+	width: 320px;
+	height: 40px;
+	background-color: #FFF;
+	border-radius: 12px;
+	margin-left: 15px;
+	margin-top: 10px;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
+	transition-duration: 0.5s;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: left;
+}
+
+.event_2:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.event_2 p {
+	padding-top: 10px;
+	padding-left: 14px;
+}
+
+#close_sidebar {
+	width: 200px;
+	height: 40px;
+	background-color: #FFF;
+	color: #000;
+	border-radius: 12px;
+	margin-left: 75px;
+	margin-top: 30px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: default;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	trasition: opacity 2s;
+	transition-duration: 0.5s;
+}
+
+#close_sidebar:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#close_sidebar p {
+	padding-top: 7px;
+	font-size: 21px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+}
+
+#show_sidebar {
+	width: 350px;
+	height: 75px;
+	background-color: #000;
+	opacity: 0.5;
+	color: #FFF;
+	border: #FFF medium solid;
+	border-radius: 25px;
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	cursor: default;
+	font-size: 21px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	opacity: 1;
+	-webkit-transition: background 2s, color 2s, opacity 2s;
+	trasition: background 2s, color 2s, opacity 2s;
+	transition-duration: 0.5s;
+}
+
+#show_sidebar:hover {
+	background: white;
+	color: #000;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+#show_sidebar p {
+	padding-top: 7px;
+}
+#EvDescription {
+    padding-right: 110px;
+    padding-left: 5px;
+    font-size: 16px; 
 }

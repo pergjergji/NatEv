@@ -1,11 +1,11 @@
 var earth;
 var options;
 
-var volcanoes_markers = ['Vezuvi', 'Etna', 'Sinabung Sumatra', 'Dukono Halmahera', 'Villarrica Central Chile', 'Sangay Ecuador', 'Ubinas Peru']; 
-var mountains_markers = ['Mount Everest', 'Mount Elbrus', 'Mount Kilimanjaro', 'Mount Kosciuszko', 'Mount Aconcagua'];
-var waterfalls_markers = ['Detian Waterfall', 'Krimml Waterfalls', 'Tugela River Falls', 'Wallaman Falls', 'Yosemite Falls'];
+var volcanoes_markers = ['Vezuvi', 'Sinabung Sumatra', 'Ubinas Peru']; 
+var mountains_markers = ['Mount Everest', 'Mount Elbrus', 'Mount Aconcagua'];
+var waterfalls_markers = ['Krimml Waterfalls', 'Tugela River Falls', 'Wallaman Falls', 'Yosemite Falls'];
 var auroras_markers = ['Aurora'];
-var iceberg_markers = ['IceBerg'];
+var iceberg_markers = ['IceBerg','IceBerg'];
 
 var volcanoes_names = [];
 var mountains_names = [];
@@ -15,51 +15,37 @@ var iceberg_names = [];
 
 var volcanoes_coordinates = [
 								[40.8167, 14.4333],
-								[37.7550, 14.9950],
 								[3.1700, 98.3920],
-								[1.6995, 127.8781],
-								[-39.4208, -71.9392],
-								[-1.8333, -1.8333],
 								[-16.3550, -70.9031]
 							];
 var mountains_coordinates = [
 								[27.9881, 86.9253],
 								[43.3550, 42.4392],
-								[-3.0758, 37.3533],
-								[-36.4560, 148.2633],
 								[-32.6534, -70.0111]
 							];
 var waterfalls_coordinates = [
-								[22.8564, 106.7220],
 								[47.1981, 12.1714],
 								[-28.7522, 28.8941],
 								[-18.5922, 145.8014],
 								[37.7550, -119.5973]
 							];
-							
-							
 var auroras_coordinates = [[70.0000, 18.0000]];
-var iceberg_coordinates = [[89.9997, 0.0000]];
+var iceberg_coordinates = [[89.9997, 0.0000],
+							[-89.9997, 0.0000]];
 
-var volcanoes_images = [];
-var mountains_images = [];
-var waterfalls_images = [];
-var auroras_images = [];
-var iceberg_images = [];
-
+							
 var show_v = true;
 var show_m = true;
 var show_w = true;
 var show_a = true;
 var show_i = true;
-
+var rotate_earth = true;
 
 var add_volcano_names = true;
 var add_mountain_names = true;
 var add_waterfall_names = true;
 var add_auroras_names = true;
 var add_iceberg_names = true;
-
 
 function show_volcanoes() {
 	if(show_v == true) {
@@ -71,8 +57,9 @@ function show_volcanoes() {
 			}
 			
 			volcanoes_markers[index] = WE.marker([volcanoes_coordinates[index][0], volcanoes_coordinates[index][1]]).addTo(earth);
-			volcanoes_markers[index].bindPopup("<h1>" + volcanoes_names[index] + "</h1><p>(<span style='font-style: italic;'>Volcano</span>)</p>", 
+			volcanoes_markers[index].bindPopup("<h1>" +  volcanoes_names[index] +" </h1><button id='invBtn' value='Click'>Post</button>", 
 												{maxWidth: 150, closeButton: true});	
+            
 		}
 	} else {
 		show_v = true;
@@ -147,7 +134,7 @@ function show_auroras() {
 												{maxWidth: 150, closeButton: true});	
 		}
 	} else {
-		show_v = true;
+		show_a = true;
 		
 		for(var index in auroras_markers) {
 			auroras_markers[index].detach();	
@@ -181,11 +168,61 @@ function show_iceberg() {
 	add_iceberg_names = false;
 }
 
-function initialize() {
-	options = {atmosphere: true, center: [0, 0], zoom: 0};
+function disable_rotation()
+{
+		 rotate_earth = false;
+		var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            
+			if(rotate_earth == true)
+			{
+			earth.setCenter([c[0], c[1] + 0.1*(elapsed/60)]);
+            requestAnimationFrame(animate);
+			}
+        });
+}
+
+function enable_rotation()
+{
+	 rotate_earth = true;
+	 
+		var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            
+			if(rotate_earth == true)
+			{
+			earth.setCenter([c[0], c[1] + 0.05*(elapsed/60)]);
+            requestAnimationFrame(animate);
+			}
+        });
+}
+
+
+
+function initialize() 
+{
+	options = {atmosphere: true, center: [0, 0], zoom: 2.3};
 	earth = new WE.map('earth_div', options);
 	WE.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
 	  subdomains: '1234',
 	  attribution: 'Tiles Courtesy of MapQuest'
 	}).addTo(earth);
+	var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            earth.setCenter([c[0], c[1] + 0.1*(elapsed/60)]);
+			if (rotate_earth == true)
+            requestAnimationFrame(animate);
+        });
 }
+
+
+
